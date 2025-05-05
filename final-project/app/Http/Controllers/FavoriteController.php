@@ -11,7 +11,10 @@ class FavoriteController extends Controller
 {
     public function index()
     {
-        $favorites = Favorite::where('user_id', '=', Auth::id())->get();
+        $favorites = Favorite::where('user_id', '=', Auth::id())
+        ->with('recipe')
+        ->get();
+
         return view('favorites.index', ['favorites' => $favorites]);
     }
 

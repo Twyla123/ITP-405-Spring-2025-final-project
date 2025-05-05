@@ -22,7 +22,7 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:200',
             'ingredients' => 'required',
             'instructions' => 'required',
             'category' => 'nullable|max:100',
@@ -74,7 +74,7 @@ class RecipeController extends Controller
         if ($recipe) {
             if (Auth::id() === $recipe->user_id) {
                 $request->validate([
-                    'title' => 'required|max:255',
+                    'title' => 'required|max:200',
                     'ingredients' => 'required',
                     'instructions' => 'required',
                     'category' => 'nullable|max:100',

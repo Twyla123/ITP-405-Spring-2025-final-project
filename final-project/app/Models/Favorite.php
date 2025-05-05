@@ -1,49 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use App\Models\Favorite;
-use App\Models\Recipe;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 
-class FavoriteController extends Controller
+class Favorite extends Model
 {
-    public function store($recipeId)
+    protected $fillable = ['user_id', 'recipe_id'];
+
+    public function user()
     {
-        $exists = Favorite::where('user_id', Auth::id())
-            ->where('recipe_id', $recipeId)
-            ->exists();
-
-        if (!$exists) {
-            $favorite = new Favorite;
-            $favorite->user_id = Auth::id();
-            $favorite->recipe_id = $recipeId;
-            $favorite->save();
-        }
-
-        return back()->with('success', 'Recipe favorited.');
+        return $this->belongsTo(User::class);
     }
 
-    public function destroy($id)
+    public function recipe()
     {
-        $favorite = Favorite::findOrFail($id);
-
-        if (Auth::id() !== $favorite->user_id) {
-            abort(403);
-        }
-
-        $favorite->delete();
-
-        return back()->with('success', 'Removed from favorites.');
-    }
-
-    public function index()
-    {
-        $favorites = Favorite::where('user_id', Auth::id())
-            ->with('recipe')
-            ->latest()
-            ->get();
-
-        return view('favorites.index', ['favorites' => $favorites]);
+        return $this->belongsTo(Recipe::class);
     }
 }

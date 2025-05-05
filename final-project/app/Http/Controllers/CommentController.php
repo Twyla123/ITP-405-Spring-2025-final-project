@@ -23,7 +23,6 @@ class CommentController extends Controller
             $comment->user_id = Auth::id();
             $comment->recipe_id = $recipeId;
             $comment->save();
-
             return redirect()->route('recipes.show', ['id' => $recipeId])
                 ->with('success', 'Comment posted.');
         } else {
@@ -58,10 +57,8 @@ class CommentController extends Controller
                 $request->validate([
                     'body' => 'required|max:1000',
                 ]);
-
                 $comment->body = $request->input('body');
                 $comment->save();
-
                 return redirect()->route('recipes.show', ['id' => $comment->recipe_id])
                     ->with('success', 'Comment updated.');
             } else {
@@ -82,7 +79,6 @@ class CommentController extends Controller
             if (Auth::id() === $comment->user_id) {
                 $recipeId = $comment->recipe_id;
                 $comment->delete();
-
                 return redirect()->route('recipes.show', ['id' => $recipeId])
                     ->with('success', 'Comment deleted.');
             } else {
