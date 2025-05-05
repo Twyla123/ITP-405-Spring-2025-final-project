@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="/recipes/{{ $recipe->id }}/update">
+            <form method="POST" action="{{ route('recipes.update', ['id' => $recipe->id]) }}">
                 @csrf
 
                 <div class="mb-3">

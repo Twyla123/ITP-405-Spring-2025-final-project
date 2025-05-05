@@ -19,7 +19,7 @@
     @endif
 
     @if (count($recipes) > 0)
-        <ul class="list-group shadow-sm">
+        <ul class="list-group">
             @foreach ($recipes as $recipe)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ route('recipes.show', ['id' => $recipe->id]) }}" class="text-decoration-none fw-bold fs-5">

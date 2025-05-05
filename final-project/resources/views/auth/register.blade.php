@@ -44,7 +44,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary px-4 py-2">Register</button>
+                <button type="submit" class="btn btn-primary px-4">Register</button>
             </div>
         </form>
 

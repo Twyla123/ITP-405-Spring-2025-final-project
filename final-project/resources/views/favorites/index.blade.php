@@ -19,7 +19,11 @@
             @foreach ($favorites as $favorite)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ route('recipes.show', ['id' => $favorite->recipe_id]) }}" class="fw-bold text-decoration-none">
-                        {{ $favorite->recipe->title ?? 'Deleted Recipe' }}
+                        @if ($favorite->recipe && $favorite->recipe->title)
+                            {{ $favorite->recipe->title }}
+                        @else
+                            Deleted Recipe
+                        @endif
                     </a>
                     <form method="POST" action="{{ route('favorites.delete', ['id' => $favorite->id]) }}" class="d-inline">
                         @csrf

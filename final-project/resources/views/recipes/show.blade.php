@@ -3,7 +3,7 @@
 @section('title', $recipe->title)
 
 @section('content')
-<div class="container mt-5 mb-5 p-4 bg-white rounded shadow-sm">
+<div class="container mt-5 mb-5 p-4 bg-white rounded">
     <h1 class="mb-4 text-center">{{ $recipe->title }}</h1>
 
     @if (session('success'))
@@ -41,7 +41,7 @@
     {{-- Image Section --}}
     @if ($recipe->image)
         <div class="mb-5 text-center">
-            <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}" class="img-fluid rounded shadow-sm" style="max-height: 400px;">
+            <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}">
         </div>
     @endif
 
