@@ -3,46 +3,65 @@
 @section('title', 'Create Recipe')
 
 @section('content')
-    <h1>Create a New Recipe</h1>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4 text-center fw-bold fs-2">Create a New Recipe</h1>
 
-    @if (session('error'))
-        <p class="text-danger">{{ session('error') }}</p>
-    @endif
+            @if (session('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
 
-    <form method="POST" action="{{ route('recipes.store') }}">
-        @csrf
+            <form method="POST" action="{{ route('recipes.store') }}">
+                @csrf
 
-        <label>Title:</label><br>
-        <input type="text" name="title" value="{{ old('title') }}"><br>
-        @error('title')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-bold fs-5">Title</label>
+                    <input id="title" name="title" type="text" class="form-control" value="{{ old('title') }}">
+                    @error('title')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <label>Ingredients:</label><br>
-        <textarea name="ingredients">{{ old('ingredients') }}</textarea><br>
-        @error('ingredients')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
+                <div class="mb-3">
+                    <label for="ingredients" class="form-label fw-bold fs-5">Ingredients</label>
+                    <textarea id="ingredients" name="ingredients" class="form-control" rows="3">{{ old('ingredients') }}</textarea>
+                    @error('ingredients')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <label>Instructions:</label><br>
-        <textarea name="instructions">{{ old('instructions') }}</textarea><br>
-        @error('instructions')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
+                <div class="mb-3">
+                    <label for="instructions" class="form-label fw-bold fs-5">Instructions</label>
+                    <textarea id="instructions" name="instructions" class="form-control" rows="3">{{ old('instructions') }}</textarea>
+                    @error('instructions')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <label>Category:</label><br>
-        <input type="text" name="category" value="{{ old('category') }}"><br>
-        @error('category')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
+                <div class="mb-3">
+                    <label for="category" class="form-label fw-bold fs-5">Category</label>
+                    <input id="category" name="category" type="text" class="form-control" value="{{ old('category') }}">
+                    @error('category')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <label>Image URL:</label><br>
-        <input type="text" name="image" value="{{ old('image') }}"><br>
-        @error('image')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
+                <div class="mb-4">
+                    <label for="image" class="form-label fw-bold fs-5">Image URL</label>
+                    <input id="image" name="image" type="text" class="form-control" value="{{ old('image') }}">
+                    @error('image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <br>
-        <button type="submit">Create Recipe</button>
-    </form>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-4 py-2 fs-5">Create Recipe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

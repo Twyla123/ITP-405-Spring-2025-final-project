@@ -22,7 +22,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/recipes/{id}/delete', [RecipeController::class, 'delete'])->name('recipes.delete');
 
 
-
     //comment 
     Route::post('/recipes/{recipeId}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/comments/{id}/edit', [CommentController::class, 'edit'])->name('comments.edit');

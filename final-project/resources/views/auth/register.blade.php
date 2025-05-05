@@ -3,44 +3,55 @@
 @section('title', 'Register')
 
 @section('content')
-    <h1>Register</h1>
+<div class="container d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6 bg-light p-5 mt-5 rounded shadow-sm">
+        <h1 class="text-center mb-4">Register</h1>
 
-    @if (session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
+        @if (session('error'))
+            <div class="alert alert-danger text-center">{{ session('error') }}</div>
+        @endif
 
-    <form method="POST" action="/register">
-        @csrf
+        <form method="POST" action="/register">
+            @csrf
 
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}">
-            @error('name')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
-        </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}">
+                @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" name="email" type="email" class="form-control" value="{{ old('email') }}">
-            @error('email')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
-        </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="email" class="form-control" value="{{ old('email') }}">
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input id="password" name="password" type="password" class="form-control">
-            @error('password')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
-        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" class="form-control">
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="password_confirmation" class="form-label">Confirm Password</label>
-            <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
-        </div>
+            <div class="mb-4">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
+            </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4 py-2">Register</button>
+            </div>
+        </form>
+
+        <p class="mt-4 text-center">
+            Already have an account?
+            <a href="{{ route('login') }}">Login here</a>.
+        </p>
+    </div>
+</div>
 @endsection

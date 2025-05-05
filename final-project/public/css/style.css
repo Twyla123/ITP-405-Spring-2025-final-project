@@ -1,0 +1,68 @@
+body {
+    background-color: #9bbec8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230425/pngtree-white-and-pink-daisies-in-a-field-with-a-blue-sky-image_2557477.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#header h1 {
+    color: #3c84ab;
+    font-size: 60px;
+    text-shadow: 3px 3px 5px black;
+    margin: 0;
+}
+
+#nav-wrapper {
+    background-color: #526d82;
+    padding: 15px 0;
+}
+
+#nav .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+#nav a,
+.logout-button {
+    color: #e3fdfd;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#nav a:hover,
+.logout-button:hover {
+    background-color: #59c1bd;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.container {
+    margin: 40px auto;
+    background-color: #bdcdd6;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 900px;
+}
+
+#footer {
+    background-color: #27374d;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0;
+    margin-top: 40px;
+}

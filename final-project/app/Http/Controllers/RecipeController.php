@@ -26,7 +26,7 @@ class RecipeController extends Controller
             'ingredients' => 'required',
             'instructions' => 'required',
             'category' => 'nullable|max:100',
-            'image' => 'nullable|url',
+            'image' => 'nullable',
         ]);
 
         $recipe = new Recipe;

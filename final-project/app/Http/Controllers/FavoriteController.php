@@ -15,6 +15,8 @@ class FavoriteController extends Controller
         ->with('recipe')
         ->get();
 
+        #dd($favorites->toArray());
+
         return view('favorites.index', ['favorites' => $favorites]);
     }
 
